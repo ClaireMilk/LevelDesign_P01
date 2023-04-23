@@ -62,6 +62,11 @@ namespace Death
             else
                 anim.SetBool("runningBack", false);
 
+            bool isPause = PickUp.isPause;
+            if(isPause)
+                playerInput.Player.Disable();
+            else
+                playerInput.Player.Enable();
         }
 
         private void FixedUpdate()
