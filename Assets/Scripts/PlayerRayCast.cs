@@ -19,6 +19,27 @@ namespace Death
 
         private void Update()
         {
+            bool isChecking = PickUp.canRotate;
+            if (!isChecking && !canCheck)
+            {
+                GameObject[] Objs;
+                Objs = GameObject.FindGameObjectsWithTag("Check");
+                for (int i = 0; i < Objs.Length; i++)
+                {
+                    Objs[i].GetComponent<PickUp>().enabled = false;
+                }
+            }
+            bool isReading = Files.reading;
+            if (!isReading && !canShow)
+            {
+                GameObject[] Objs;
+                Objs = GameObject.FindGameObjectsWithTag("Files");
+                for (int i = 0; i < Objs.Length; i++)
+                {
+                    Objs[i].GetComponent<Files>().enabled = false;
+                }
+            }
+
             LookRay();
         }
 
@@ -60,7 +81,7 @@ namespace Death
                     pickipHint.enabled = false;
                     canPickUp = false;
                     canCheck = false;
-                    canShow = false; 
+                    canShow = false;
                 }
 
                 if (canPickUp && Input.GetKey(KeyCode.E))
@@ -69,12 +90,6 @@ namespace Death
                     hit.collider.gameObject.SetActive(false);
                 }
 
-                bool isChecking = PickUp.isPause;
-                if(!isChecking && !canCheck)
-                    GameObject.Find("Interactive").GetComponent<PickUp>().enabled = false;
-                bool isReading = Files.isPause;
-                if (!isReading && !canShow)
-                    GameObject.Find("File").GetComponent<Files>().enabled = false;
             }
 
             if (hit.collider == null)

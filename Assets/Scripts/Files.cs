@@ -8,7 +8,7 @@ namespace Death
     public class Files : MonoBehaviour
     {
         public static bool isPause;
-        private bool reading;
+        public static bool reading;
         public GameObject content;
 
         private void Update()

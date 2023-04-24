@@ -7,9 +7,10 @@ public class TriggerNine : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player" && Input.GetKeyDown(KeyCode.Space))
+        if (other.gameObject.tag == "Player")
         {
             Application.Quit();
+            Debug.Log("End");
         }
     }
 }

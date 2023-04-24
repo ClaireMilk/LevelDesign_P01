@@ -8,7 +8,7 @@ public class TriggerTen : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player" && Input.GetKeyDown(KeyCode.Space))
+        if (other.gameObject.tag == "Player")
         {
             player.transform.localPosition = new Vector3(player.transform.localPosition.x, (player.transform.localPosition.y + 4), player.transform.localPosition.z);
         }

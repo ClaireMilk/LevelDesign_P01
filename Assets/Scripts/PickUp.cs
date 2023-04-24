@@ -6,7 +6,7 @@ namespace Death
 {
     public class PickUp : MonoBehaviour
     {
-        private bool canRotate;
+        public static bool canRotate;
         public static bool isPause;
 
         //pickup and put back
@@ -48,7 +48,7 @@ namespace Death
                     isPause = true;
                     canRotate = true;
                 }
-                else
+                else if (!canPickUp || canRotate)
                 {
                     isPause = false;
                     transform.parent = itemsTransform;
