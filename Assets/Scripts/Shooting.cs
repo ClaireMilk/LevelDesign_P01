@@ -71,7 +71,7 @@ namespace Death
             }
             else
             {
-                mainCamera.transform.localPosition = new Vector3(0.2f, 1.68f, -1.07f);
+                mainCamera.transform.localPosition = new Vector3(0.2f, mainCamera.transform.localPosition.y, mainCamera.transform.localPosition.z);
                 mainCamera.fieldOfView = 60;
                 i = 0;
             }
