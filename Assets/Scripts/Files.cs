@@ -1,21 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Death
 {
     public class Files : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
+        public static bool isPause;
+        private bool reading;
+        public GameObject content;
+
+        private void Update()
         {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
+            bool canRead = PlayerRayCast.canShow;
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                if(canRead && !reading)
+                {
+                    content.SetActive(true);
+                    isPause = true;
+                    reading = true;
+                }
+                else
+                {
+                    content.SetActive(false);
+                    isPause = false;
+                    reading = false;
+                }
+            }
         }
     }
 }

@@ -45,7 +45,6 @@ namespace Death
                     transform.parent = cameraTransform;
                     transform.localPosition = new Vector3(vector.x, vector.y, vector.z);
                     transform.localRotation = Quaternion.Euler(0, 0, 0);
-                    rb.isKinematic = true;
                     isPause = true;
                     canRotate = true;
                 }

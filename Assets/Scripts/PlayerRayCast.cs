@@ -46,12 +46,14 @@ namespace Death
                     pickipHint.enabled = true;
                     canCheck = true;
                     currentObjectName = hit.collider.gameObject.name;
+                    hit.collider.gameObject.GetComponent<PickUp>().enabled = true;
                 }
                 else if (hit.collider.gameObject.tag == "Files")
                 {
                     pickipHint.enabled = true;
                     canShow = true;
                     currentObjectName = hit.collider.gameObject.name;
+                    hit.collider.gameObject.GetComponent<Files>().enabled = true;
                 }
                 else
                 {
@@ -66,19 +68,13 @@ namespace Death
                     getObejct.text = hit.collider.gameObject.name;
                     hit.collider.gameObject.SetActive(false);
                 }
-                else if(canCheck && Input.GetKey(KeyCode.E))
-                {
-                    hit.collider.gameObject.GetComponent<PickUp>().enabled = true;
-                }
-                else if(canShow && Input.GetKey(KeyCode.E))
-                {
-                    hit.collider.gameObject.GetComponent<Files>().enabled = true;
-                }
 
-                if(currentObjectName == "Interactive" && !canCheck)
-                    GameObject.Find(currentObjectName).GetComponent<PickUp>().enabled = false;
-                if (currentObjectName == "File" && !canShow)
-                    GameObject.Find(currentObjectName).GetComponent<Files>().enabled = false;
+                bool isChecking = PickUp.isPause;
+                if(!isChecking && !canCheck)
+                    GameObject.Find("Interactive").GetComponent<PickUp>().enabled = false;
+                bool isReading = Files.isPause;
+                if (!isReading && !canShow)
+                    GameObject.Find("File").GetComponent<Files>().enabled = false;
             }
 
             if (hit.collider == null)

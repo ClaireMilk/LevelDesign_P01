@@ -62,8 +62,9 @@ namespace Death
             else
                 anim.SetBool("runningBack", false);
 
-            bool isPause = PickUp.isPause;
-            if(isPause)
+            bool isPause_1 = PickUp.isPause;
+            bool isPause_2 = Files.isPause;
+            if(isPause_1 || isPause_2)
                 playerInput.Player.Disable();
             else
                 playerInput.Player.Enable();

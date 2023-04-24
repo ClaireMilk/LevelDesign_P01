@@ -27,25 +27,31 @@ namespace Death
         // Update is called once per frame
         void Update()
         {
-            if (Input.GetMouseButton(1))
-            {
-                isAiming = true;
-            }
+            bool isPause_1 = PickUp.isPause;
+            bool isPause_2 = Files.isPause;
 
-            if (Input.GetMouseButtonDown(1))
+            if(!isPause_1 && !isPause_2)
             {
-                anim.SetBool("usingPistol", true);
-            }
+                if (Input.GetMouseButton(1))
+                {
+                    isAiming = true;
+                }
 
-            if (Input.GetMouseButtonUp(1))
-            {
-                isAiming = false;
-                anim.SetBool("usingPistol", false);
-            }
+                if (Input.GetMouseButtonDown(1))
+                {
+                    anim.SetBool("usingPistol", true);
+                }
 
-            if (Input.GetMouseButtonDown(0) && isAiming)
-            {
-                anim.SetTrigger("shoot");
+                if (Input.GetMouseButtonUp(1))
+                {
+                    isAiming = false;
+                    anim.SetBool("usingPistol", false);
+                }
+
+                if (Input.GetMouseButtonDown(0) && isAiming)
+                {
+                    anim.SetTrigger("shoot");
+                }
             }
         }
 
@@ -65,6 +71,7 @@ namespace Death
             }
             else
             {
+                mainCamera.transform.localPosition = new Vector3(0.2f, 1.68f, -1.07f);
                 mainCamera.fieldOfView = 60;
                 i = 0;
             }

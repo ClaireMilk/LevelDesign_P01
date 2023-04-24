@@ -113,7 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraTransform: {fileID: 0}
   itemsTransform: {fileID: 0}
-  vector: {x: 0, y: 0, z: 0}
+  vector: {x: 0, y: 0, z: 0.7}
   yMinLimit: -20
   yMaxLimit: 120
   xSpeed: 200
